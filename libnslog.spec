@@ -2,25 +2,34 @@
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
 
-Summary:	libnslog library for NetSurf
-Summary(pl.UTF-8):	Biblioteka libnslog dla projektu NetSurf
+Summary:	NetSurf Parametric Logging Library
+Summary(pl.UTF-8):	Biblioteka NetSurf do sparametryzowanego logowania
 Name:		libnslog
 Version:	0.1.0
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 Source0:	http://download.netsurf-browser.org/libs/releases/%{name}-%{version}-src.tar.gz
 # Source0-md5:	69520a7133c9d13e11d164492d1bbe60
-URL:		http://www.netsurf-browser.org/projects/libutf8proc/
+URL:		http://www.netsurf-browser.org/
+BuildRequires:	bison
+BuildRequires:	flex
 BuildRequires:	netsurf-buildsystem >= 1.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-libnslog
+Libnslog provides a category-based logging library which supports
+complex logging filters, multiple log levels, and provides context
+through to client applications.
+
+%description -l pl.UTF-8
+Libnslog to biblioteka logująca oparta na kategoriach, obsługująca
+złożone filtry, wiele poziomów logowania, zapewniająca kontekst dla
+aplikacji klienckich.
 
 %package devel
 Summary:	libnslog library headers
-Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libutf8proc
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libnslog
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -95,6 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc COPYING README
 %attr(755,root,root) %{_libdir}/libnslog.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libnslog.so.0
 
