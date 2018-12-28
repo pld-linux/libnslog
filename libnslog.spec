@@ -5,16 +5,16 @@
 Summary:	NetSurf Parametric Logging Library
 Summary(pl.UTF-8):	Biblioteka NetSurf do sparametryzowanego logowania
 Name:		libnslog
-Version:	0.1.0
-Release:	2
+Version:	0.1.2
+Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://download.netsurf-browser.org/libs/releases/%{name}-%{version}-src.tar.gz
-# Source0-md5:	69520a7133c9d13e11d164492d1bbe60
+# Source0-md5:	d407496828f04a8fc15046e1efa91c0b
 URL:		http://www.netsurf-browser.org/
 BuildRequires:	bison
 BuildRequires:	flex
-BuildRequires:	netsurf-buildsystem >= 1.6
+BuildRequires:	netsurf-buildsystem >= 1.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -62,13 +62,13 @@ export CC="%{__cc}"
 export CFLAGS="%{rpmcflags}"
 export LDFLAGS="%{rpmldflags}"
 
-%{__make} \
+%{__make} -j1 \
 	Q= \
 	PREFIX=%{_prefix} \
 	COMPONENT_TYPE=lib-shared
 
 %if %{with static_libs}
-%{__make} \
+%{__make} -j1 \
 	Q= \
 	PREFIX=%{_prefix} \
 	COMPONENT_TYPE=lib-static
