@@ -6,7 +6,7 @@ Summary:	NetSurf Parametric Logging Library
 Summary(pl.UTF-8):	Biblioteka NetSurf do sparametryzowanego logowania
 Name:		libnslog
 Version:	0.1.3
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 Source0:	http://download.netsurf-browser.org/libs/releases/%{name}-%{version}-src.tar.gz
